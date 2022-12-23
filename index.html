@@ -12,11 +12,9 @@
 <body>
     <!-- <h1>hey</h1> -->
     <div class="clock">
-        <div class="hand hr"></div>
-        <div class="hand min"></div>
-        <div class="hand sec"></div>
-
-        
+        <div class="hand hr" id="hr"></div>
+        <div class="hand min" id="min"></div>
+        <div class="hand sec" id="sec"></div>
         <div class="num num1">1</div>
         <div class="num num2">2</div>
         <div class="num num3">3</div>
@@ -31,5 +29,40 @@
         <div class="num num12">12</div>
     </div>
 </body>
+
+
+<script>
+    let hourHand = document.getElementById('hr');
+    let minuteHand = document.getElementById('min');
+    let secondHand = document.getElementById('sec');
+
+
+    const setTime = () => {
+        const currentTime = new Date();
+        // console.log(currentTime);
+        const seconds = currentTime.getSeconds();
+        // console.log(seconds);
+        const minutes = currentTime.getMinutes();
+        // console.log(minutes);
+        const hours = currentTime.getHours();
+        // console.log(hours);
+        const secondsRatio = seconds / 60;
+        const minutesRatio = (minutes) / 60;
+        const hoursRatio = (hours) / 12;
+        // console.log(hoursRatio);
+
+        setRotation(secondHand, secondsRatio);
+        setRotation(minuteHand, minutesRatio);
+        setRotation(hourHand, hoursRatio);
+    }
+
+
+    const setRotation = (element, rotationRatio) => {
+        element.style.setProperty('--rotation', rotationRatio * 360);
+    }
+
+    setTime();
+    setInterval(setTime, 1000);
+</script>
 
 </html>

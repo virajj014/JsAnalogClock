@@ -92,9 +92,10 @@ position: relative;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    top: 49%;
-    left: 49%;
-    z-index: 1;
+    top: 50%;
+    left: 50%;
+    z-index: 11;
+    transform: translate(-50%,-50%)
 }
 
 .clock .hand{
@@ -106,6 +107,8 @@ position: relative;
     border-bottom-right-radius: 20px;
     transform: translateX(-50%) rotate(calc(var(--rotation)*1deg)) ;
     transform-origin: bottom;
+
+    z-index: 10;
 }
 
  
@@ -113,7 +116,7 @@ position: relative;
     width: 2px;
     height: 45%;
     background-color: var(--secondhand-color);
-    --rotation:120;
+    /* --rotation:30; */
 } 
 
 .clock .min{
@@ -125,6 +128,6 @@ position: relative;
     width: 10px;
     height: 35%;
     background-color: var(--hourhand-color);
-    --rotation:150;
+    /* --rotation:150; */
 
 }
